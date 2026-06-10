@@ -1,0 +1,35 @@
+{
+  "name": "project-zenit",
+  "version": "1.0.0",
+  "description": "A bio-regenerative LEO service station simulation powered by live NASA data.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently \"node server/api.js\" \"vite\"",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thedude1215/Project-Zenit.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/thedude1215/Project-Zenit/issues"
+  },
+  "homepage": "https://github.com/thedude1215/Project-Zenit#readme",
+  "dependencies": {
+    "satellite.js": "^7.0.1",
+    "three": "^0.184.0"
+  },
+  "devDependencies": {
+    "concurrently": "^10.0.3",
+    "cors": "^2.8.6",
+    "d": "^1.0.2",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "vite": "^8.0.16"
+  }
+}
