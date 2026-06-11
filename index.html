@@ -5,11 +5,76 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Project Zenit</title>
+  <link rel="stylesheet" href="src/style.css">
 </head>
 
 <body>
-  <h1>PROJECT ZENIT</h1>
-  <div id="app"></div>
+  <div id="hero">
+    <h1>PROJECT ZENIT</h1>
+    <div class="hero-actions">
+      <button id="Start">Initiate Simulation</button>
+      <button id="startTour">Start Guided Tour </button>
+    </div>
+  </div>
+
+  <canvas id="simulation-canvas"></canvas>
+
+  <div id="tt">
+    <div class="t" id="tt-title"></div>
+    <div class="tt-body"></div>
+  </div>
+
+  <div class="hud">
+  <div class="hud-col hud-top-left">
+   <div class="panel fin ">
+    <div class="title">PROJECT ZENIT</div>
+    <div id="md"> Mission DAY: 1</div>
+    <div id="stat" class="status"> SYSTEM NOMINAL </div>
+   </div>
+    </div>
+ 
+
+    <div class="hud-col hud-top-right">
+      <div class="panel" id="resources-panel">
+        <div class="title">STATION RESOURCES</div>
+        <div class="row"><span>O2</span><div class="bar-wrap"><div id="o2-bar" class="bar"></div></div><span id="o2-t">0%</span></div>
+        <div class="row"><span>Biofuel</span><div class="bar-wrap"><div id="bf-bar" class="bar"></div></div><span id="bf-t">0%</span></div>
+        <div class="row" id="co2-row"><span>CO2</span><div class="bar-wrap"><div id="co2-bar" class="bar"></div></div><span id="co2-t">0 kg</span></div>
+        <div class="row"><span>Aluminum</span><span id="al-t">0 kg</span></div>
+        <div class="row"><span>Titanium</span><span id="ti-t">0 kg</span></div>
+        <div id="process">CO2 -> O2 + CH4</div>
+      </div>
+    </div>
+
+    <div class="hud-col hud-bottom-left">
+      <div class="panel tgt-hud " id="target" style="display: none;">
+      <div class="tgt-lock-lable">LOCKED ON</div>
+      <div class="tgt-name" id="tgt-name">--</div>
+      <div class="tgt-stats">
+        <span id="tgt-alt">-- km</span>
+        <span id="tgt-vel">-- km/s</span>
+      </div>
+      <div class="tgt-noard-id" id="tgt-noard">NORAD --</div>
+      <button class="btn" id="btn-recycle">Recycle </button>
+      <button class="btn danger" id="btn-deborbit">Deorbit</button>
+      </div>
+    </div>
+
+    <div class="hud-col hud-bottom-right">
+      <button class="icon-btn" id="open-log" title="Events">Log</button>
+      <button class="icon-btn" id="dock" title="Dock" style="display:none">Dock</button>
+      <button class="icon-btn" id="market" title="Operations">Ops</button>
+      <button class="icon-btn" id="about" title="About">About</button>
+    </div>
+  </div>
+
+</div>
+
+<div class="overlay" id="log-overlay"><div class="sheet"><button class="close" id="log-close">x</button><h3>Event Log</h3><div id="log-list"></div></div></div>
+  <div class="overlay" id="market-overlay"><div class="sheet"><button class="close" id="market-close">x</button><h3>Operations Dashboard</h3><div id="market-body"></div></div></div>
+  <div class="overlay" id="about-overlay"><div class="sheet"><button class="close" id="about-close">x</button><h3>About and Sources</h3><div id="sources-panel"></div></div></div>
+
+  <div id="toast"> </div>
   <script type="module" src="/src/main.js"></script>
 </body>
 
