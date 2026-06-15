@@ -36,3 +36,13 @@ window.addEventListener('resize', () => {
   camera.updateProjectionMatrix();
   renderer.setSize(innerWidth, innerHeight);
 });
+
+const starsGeom = new THREE.BufferGeometry();
+starsGeom.setAttribute(
+  'position',
+  new THREE.Float32BufferAttribute(
+    Array.from({ length: 22000 }, () => THREE.MathUtils.randFloatSpread(40000)),
+    3
+  )
+);
+scene.add(new THREE.Points(starsGeom, new THREE.PointsMaterial({ size: 2, color: 0xffffff })));
