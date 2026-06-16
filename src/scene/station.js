@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 import { scene } from './setup.js';
+import { visitorGroup } from './visitor.js';
 
 export const station = new THREE.Group(); // Empty container to group multiple meshes together (like station parts)
 station.scale.set(0.05, 0.05, 0.05);
@@ -72,3 +73,7 @@ const reactor = new THREE.Mesh(
   export function animateArm(progress, target) {
     armSegment.scale.z = target ? 1 + progress * 12 : 1;
   }
+
+
+  station.add(visitorGroup);
+visitorGroup.position.set(0, 0, 150);
