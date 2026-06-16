@@ -2,3 +2,5 @@ export const ECI_TO_SCENE = 0.0015; // Scale factor to convert Earth Centered In
 export const EARTH_RADIUS = 6.371; // Earth radius scaled down from 6371 km
 export const ORBIT_RADIUS = EARTH_RADIUS + 0.8;
 
+export const VISITOR_SPAWN_CHANCE = 0.05;
+export const VISITOR_MIN_DAY = 1;
