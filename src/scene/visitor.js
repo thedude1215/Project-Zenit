@@ -31,3 +31,4 @@ export const visitorState = {
   phase: 'HIDDEN',
   progress: 0,
 };
+

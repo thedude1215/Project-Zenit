@@ -4,3 +4,5 @@ export const ORBIT_RADIUS = EARTH_RADIUS + 0.8;
 
 export const VISITOR_SPAWN_CHANCE = 0.05;
 export const VISITOR_MIN_DAY = 1;
+
+
