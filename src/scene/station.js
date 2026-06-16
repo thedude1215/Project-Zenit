@@ -37,3 +37,38 @@ function createSolarArray(y) {
 station.add(createSolarArray(12), createSolarArray(-12));
 
 scene.add(station);
+
+
+const reactor = new THREE.Mesh(
+    new THREE.SphereGeometry(2.5, 32, 32),
+    new THREE.MeshPhysicalMaterial({
+      color: 0x10b981,
+      emissive: 0x059669,
+      emissiveIntensity: 0.5,
+      transparent: true,
+      opacity: 0.8,
+    })
+  );
+  reactor.position.x = -8;
+  station.add(reactor);
+  
+  function addBeacon(x, y, z, color) {
+    const light = new THREE.PointLight(color, 2, 10); // Light that emits in all directions from a specific point (like a beacon)
+    light.position.set(x, y, z);
+    station.add(light);
+  }
+  
+  addBeacon(8, 0, 2, 0xff0000);
+  addBeacon(-11, 0, 0, 0x00ff00);
+  
+  const armGroup = new THREE.Group(); // Empty container to group multiple meshes together (like station parts)
+  armGroup.position.set(0, 5, 0);
+  const armSegment = new THREE.Mesh(new THREE.CylinderGeometry(0.2, 0.2, 1, 8), trussMat); // Creates a 3D cylinder (radius top, radius bottom, height, radial segments)
+  armSegment.geometry.translate(0, 0.5, 0);
+  armSegment.rotation.x = Math.PI / 2;
+  armGroup.add(armSegment);
+  station.add(armGroup);
+  
+  export function animateArm(progress, target) {
+    armSegment.scale.z = target ? 1 + progress * 12 : 1;
+  }
