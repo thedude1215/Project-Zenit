@@ -39,3 +39,5 @@ const glow = new THREE.Mesh(
  );
  
  earth.add(glow);
+
+ 
